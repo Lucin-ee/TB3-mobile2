@@ -1,11 +1,10 @@
-package com.automacorp2
+package com.automacorp2.service
 
 import okhttp3.Credentials
 import okhttp3.Interceptor
-import retrofit2.Response
+import okhttp3.Response
 
-
-class BasicAuthInterceptor(val username: String, val password: String): Interceptor {
+class BasicAuthInterceptor(val username: String, val password: String) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain
             .request()
@@ -15,4 +14,3 @@ class BasicAuthInterceptor(val username: String, val password: String): Intercep
         return chain.proceed(request)
     }
 }
-
